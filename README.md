@@ -49,6 +49,20 @@ Once installed, you can import Numpy in your Python scripts or interactive sessi
 ` import numpy as np `
 
 ## Pandas
+Pandas is a powerful and popular open-source data manipulation and analysis library for Python. It provides easy-to-use data structures and data analysis tools, making it an essential tool for data scientists and analysts.
+
+Pandas has two data structures, Series and DataFrame.
+### Series 
+Series is a One dimensional labeled array that hold any data type. It is similar to a column in a spreadsheet or a single column of a database table.On the other hand, a DataFrame is a two-dimensional labeled data structure that resembles a table or a spreadsheet. It consists of multiple columns, each of which can have different data types.
+
+Way's to create the DataFrame. Two ways we can create pandas DataFrame. Using .CSV and .XLSX files. Here's how we can use those to create the DataFrame.
+
+` df = pd.read_csv('filename.csv') `
+
+or 
+
+`df = pd.read_excel('filename.xlsx', 'Sheet1')`
+
 
 ## Matplotlib
 
