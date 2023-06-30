@@ -56,3 +56,35 @@ Comparison operators.
 AND, OR
 
 */
+select * 
+from student;
+
+select *
+from student 
+where student.student_id = 5;
+
+select *
+from student 
+where student.student_id <= 5;
+
+select *
+from student 
+where student.student_id >= 5;
+
+select *
+from student 
+where student.major <> 'Bio Chemistry';
+
+
+select *
+from student 
+where student.student_id <= 3 and student.major <> 'Bio Chemistry';
+
+-- Using IN operator to give a group of values to specific column to filter the data bases table
+
+select * 
+from student;
+
+select * 
+from student 
+where student.name in ('jame', 'Colon', 'Jack') and student.student_id >= 3;
