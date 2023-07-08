@@ -39,11 +39,11 @@ Numpy offers a comprehensive suite of linear algebra functions, including matrix
 #### 7.Memory Efficiency: 
 Numpy arrays are memory-efficient, as they store data in a contiguous block, reducing overhead and allowing efficient memory access. Numpy also provides features for memory-mapped arrays, which enable reading and writing large arrays stored on disk.
 
-## Installation
+### Installation
 You can install the numpy package using the following command.  
               ` pip install numpy `   
               
-## Usage
+### Usage
 Once installed, you can import Numpy in your Python scripts or interactive sessions using the following import statement:  
 
 ` import numpy as np `
