@@ -92,3 +92,10 @@ The interpolate function in the Pandas library is used to fill missing values in
 
 ## Matplotlib
 
+Matplotlib is a popular plotting library for the Python programming language. It provides a wide range of functionalities for creating various types of plots and visualizations. Matplotlib is widely used in data analysis, scientific computing, and data visualization tasks.
+
+## MySQL
+MySQL is an open-source relational database management system (RDBMS) that is widely used for managing and storing data. It is a popular choice for web applications and is used by many organizations, ranging from small businesses to large enterprises.
+
+
+
