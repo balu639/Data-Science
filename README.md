@@ -129,5 +129,27 @@ You can customize the gridlines further by passing arguments to the grid() funct
 ## MySQL
 MySQL is an open-source relational database management system (RDBMS) that is widely used for managing and storing data. It is a popular choice for web applications and is used by many organizations, ranging from small businesses to large enterprises.
 
+### SQL Basics
 
+#### Create
+
+#### Read
+
+#### Update
+
+#### Delete
+
+### SQL Joins
+
+### SQL Union
+
+### Nested Queries
+
+### SQL Functions
+
+### SQL triggers
+
+### On Delete
+
+### Wild Cards
 
