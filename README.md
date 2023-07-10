@@ -79,14 +79,14 @@ we can also fill the missing values with the previous value or the next value in
 #### dropna
 The dropna function in the Pandas library is used to remove missing or null values from a DataFrame. It allows you to drop rows or columns that contain any missing values or only those that have missing values in specific columns.
 
-                    `df = df.dropna() `
+                     df = df.dropna()
 
 
 #### interpolate
 
 The interpolate function in the Pandas library is used to fill missing values in a DataFrame or Series by interpolating between existing values. Interpolation is a technique used to estimate values between known data points based on the pattern or trend in the data.
 
-                    `df = df.interpolate() `
+                     df = df.interpolate()
         
 
 
@@ -96,12 +96,12 @@ Matplotlib is a popular plotting library for the Python programming language. It
 
 ### usage
 
-                ` import matplotlib.pyplot as plt `
-                ` %matplotlib inline `
-                ` plt.xlabel() `
-                ` plt.ylabel() `
-                ` plt.title() `
-                ` plt.plot(x,y, color = '' , linestyle='', linewidth='') `
+                 import matplotlib.pyplot as plt 
+                 %matplotlib inline 
+                 plt.xlabel() 
+                 plt.ylabel() 
+                 plt.title() 
+                 plt.plot(x,y, color = '' , linestyle='', linewidth='')
 
 ### Axes labels, legend, grid
 In the Matplotlib library, you can customize various aspects of your plot, including axes labels, legends, and gridlines.
@@ -113,16 +113,16 @@ Y-axis Label: You can set the label for the y-axis using the ylabel() function. 
 #### legend
 To create a legend for your plot, you need to assign labels to the elements you want to appear in the legend and then call the legend() function.
 
-                  ` plt.plot(x1, y1, label='Line 1') `
-                  ` plt.plot(x2, y2, label='Line 2') `
-                  ` plt.legend() `
+                    plt.plot(x1, y1, label='Line 1') 
+                    plt.plot(x2, y2, label='Line 2')
+                    plt.legend()
 
 #### grid
 To display major gridlines on both the x and y axes, you can use the grid() function without any arguments. For example:  ` plt.grid() `
 
 You can customize the gridlines further by passing arguments to the grid() function. For example:
 
-                   ` plt.grid(color='gray', linestyle='--', linewidth=0.5) `
+                     plt.grid(color='gray', linestyle='--', linewidth=0.5)
 
 
 
@@ -134,37 +134,37 @@ MySQL is an open-source relational database management system (RDBMS) that is wi
 #### Create
 This operation is used to insert new records into a database table. It involves specifying the data to be inserted and providing the necessary values for the fields or columns in the table.
 
-                              ` CREATE TABLE student(
+                                CREATE TABLE student(
                               	student_id INT PRIMARY KEY,
                                   name varchar(20),
                                   major varchar(20)
-                              ); `
+                              ); 
 
-                              `INSERT INTO student VALUES(1, 'John', 'Computer SCience'); `
+                              INSERT INTO student VALUES(1, 'John', 'Computer SCience'); 
 
 #### Read
 The read operation is used to retrieve data from the database. It involves querying the database table and fetching the desired records based on certain conditions. Read operations can be simple queries to retrieve specific records or complex queries involving joins, aggregations, and sorting.
 
-                              ` select * 
-                              from student; `
+                              select * 
+                              from student; 
 
-                              ` select student_id, name 
-                                from student; `
+                              select student_id, name 
+                                from student; 
 
 #### Update
 The update operation is used to modify existing records in the database. It involves selecting the records to be updated and specifying the new values for one or more fields. Update operations allow you to change specific data within a record without deleting and re-creating it.
 
-                              ` update employee
+                              update employee
                               set branch_id =1
-                              where emp_id =100; `
+                              where emp_id =100; 
 
 #### Delete
 The delete operation is used to remove records from the database table. It involves selecting the records to be deleted based on certain conditions and removing them from the table. Delete operations permanently remove the data from the database.
 
-                             ` DELETE FROM customers
-                                WHERE id = 5; `
+                              DELETE FROM customers
+                                WHERE id = 5;
 
-                             ` DELETE TABLE student; `
+                              DELETE TABLE student;
 
 
 ### SQL Joins
