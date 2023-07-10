@@ -73,8 +73,8 @@ In pandas fillna is used to fill the missing values  ( represented as NaN) in pa
 
 we can also fill the missing values with the previous value or the next value in a column or row using the below methods.
 
-        ``` df = df.fillna(method='ffill') 
-            df = df.fillna(method='bfill') ```
+            df = df.fillna(method='ffill') 
+            df = df.fillna(method='bfill')
 
 #### dropna
 The dropna function in the Pandas library is used to remove missing or null values from a DataFrame. It allows you to drop rows or columns that contain any missing values or only those that have missing values in specific columns.
