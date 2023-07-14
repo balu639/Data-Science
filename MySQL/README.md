@@ -47,11 +47,36 @@ There are different types of SQL joins that you can use, including:
 
 #### Inner Join
 
+Returns only the rows that have matching values in both tables being joined.
+
+                          select employee.emp_id, employee.first_name, branch.branch_name
+                          from employee
+                          inner join branch
+                          on employee.emp_id = branch.mgr_id;
+
 #### Left Join
+Returns all the rows from the left table and the matched rows from the right table. If there are no matches, NULL values are returned for the right table columns.
+
+                        select employee.emp_id, employee.first_name, branch.branch_name
+                        from employee
+                        left join branch
+                        on employee.emp_id = branch.mgr_id;
 
 #### Right Join
+Returns all the rows from the right table and the matched rows from the left table. If there are no matches, NULL values are returned for the left table columns.
+
+                        select employee.emp_id, employee.first_name, branch.branch_name
+                        from employee
+                        right join branch
+                        on employee.emp_id = branch.mgr_id;
 
 #### Full Join
+Returns all the rows from both tables. If there are no matches, NULL values are returned for columns from the table that doesn't have a match.
+                        select employee.emp_id, employee.first_name, branch.branch_name
+                        from employee
+                        join branch
+                        on employee.emp_id = branch.mgr_id;
+                      
 
 ### SQL Union
 
