@@ -41,6 +41,18 @@ The delete operation is used to remove records from the database table. It invol
 
 ### SQL Joins
 
+In SQL, a join is a method used to combine rows from two or more tables based on related columns between them. It allows you to retrieve data from multiple tables in a single query by specifying the conditions for joining the tables.
+
+There are different types of SQL joins that you can use, including:
+
+#### Inner Join
+
+#### Left Join
+
+#### Right Join
+
+#### Full Join
+
 ### SQL Union
 
 ### Nested Queries
