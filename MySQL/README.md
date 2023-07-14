@@ -72,6 +72,7 @@ Returns all the rows from the right table and the matched rows from the left tab
 
 #### Full Join
 Returns all the rows from both tables. If there are no matches, NULL values are returned for columns from the table that doesn't have a match.
+                        
                         select employee.emp_id, employee.first_name, branch.branch_name
                         from employee
                         join branch
