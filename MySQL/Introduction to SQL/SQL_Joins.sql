@@ -19,4 +19,10 @@ from employee
 right join branch
 on employee.emp_id = branch.mgr_id;
 
+select * from branch;
+-- Inner Join : Returns the rows that have the matching values in both the tables
 
+select employee.emp_id, employee.first_name, branch.branch_name
+from employee
+inner join branch
+on employee.emp_id = branch.mgr_id;
