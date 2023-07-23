@@ -81,13 +81,103 @@ Returns all the rows from both tables. If there are no matches, NULL values are 
 
 ### SQL Union
 
+SQL UNION is a keyword used to combine the result sets of two or more SELECT statements into a single result set. The UNION operation removes duplicate rows from the combined result set.
+
+The basic syntax for using UNION is as follows:
+
+                      select first_name as company_name
+                      from employee
+                      union
+                      select branch_name
+                      from branch
+                      union
+                      select client_name
+                      from client;
+
+The UNION operation combines the result sets of the two SELECT statements and removes duplicate rows. The result set is sorted in ascending order by default. If you want to sort the result set in a specific order, you can use the ORDER BY clause at the end of the query.
+
+
+                      select client_name,client.branch_id
+                      from client
+                      union
+                      select supplier_name,branch_supplier.branch_id
+                      from branch_supplier
+                      order by client_name;
+
+
 ### Nested Queries
+Nested queries, also known as subqueries, are SQL queries that are embedded within another query. A nested query is used to retrieve data from one or more tables based on the results of an outer query. It allows you to perform complex operations and make the query more flexible by using the results of one query as input for another.
+
+There are two types of nested queries: correlated and non-correlated.
+
+1. Non-correlated:
+
+A non-correlated nested query is executed independently of the outer query and doesn't reference any columns from the outer query. It is executed first, and its result is used in the outer query.
+
+Here's an example of a non-correlated nested query:
+                    
+                    SELECT name, salary
+                    FROM employees
+                    WHERE salary > (SELECT AVG(salary) FROM employees);
+
+2. correlated nested queries:
+A correlated nested query is executed for each row of the outer query. It references columns from the outer query, enabling the nested query to be dependent on the outer query's values.
+
+Here's an example of a correlated nested query:
+                    
+                    SELECT name, salary
+                    FROM employees e
+                    WHERE salary > (SELECT AVG(salary) FROM employees WHERE department = e.department);
+
+
+
 
 ### SQL Functions
+SQL functions are built-in operations that perform specific tasks or calculations on data in a database. They can be used to manipulate, transform, or retrieve data in various ways. SQL functions can be categorized into several types:
+
+Few examples of functions:
+1. COUNT
+2. SUM
+3. AVG
 
 ### SQL triggers
+In SQL, triggers are database objects that are automatically executed in response to specific events, such as data modifications (INSERT, UPDATE, DELETE) or certain actions (e.g., login or logout). Triggers are typically used to enforce business rules, maintain data integrity, and automate certain tasks within the database.
+
+                    CREATE TRIGGER after_insert_example
+                    AFTER INSERT
+                    ON employees
+                    FOR EACH ROW
+                    BEGIN
+                        INSERT INTO audit_table (event_type, event_date, user_id)
+                        VALUES ('INSERT', NOW(), NEW.user_id);
+                    END;
+
 
 ### On Delete
+In SQL, the ON DELETE clause is used to specify the action to be taken when a row in a parent table is deleted and there are related rows in the child table(s). It is typically used in foreign key relationships to define the referential integrity between tables.
+
+ON DELETE SET NULL: When a row in the parent table is deleted, all related rows in the child table(s) will have their foreign key columns set to NULL. This is applicable only if the foreign key columns allow NULL values.
+
+                  create table branch (
+                  branch_id INT PRIMARY KEY,
+                  branch_name VARCHAR(40),
+                  mgr_id INT,
+                  mgr_start_date DATE,
+                  foreign key(mgr_id) references employee(emp_id) on delete set null
+                  );
+
+
+ON DELETE CASCADE: When a row in the parent table is deleted, all related rows in the child table(s) will also be deleted automatically. This option effectively propagates the delete operation from the parent to the child tables.
+
+                  
+                  create table works_with(
+                  emp_id INT,
+                  client_id INT,
+                  total_sales INT,
+                  primary key(emp_id,client_id),
+                  foreign key (emp_id) references employee(emp_id) on delete cascade,
+                  foreign key (client_id) references client(client_id) on delete cascade
+                  );
 
 ### Wild Cards
 
