@@ -190,9 +190,10 @@ The percent sign represents zero, one, or multiple characters. It can be used to
                   from client
                   where client_name LIKE '%LLC';
 
-3. '_'(underscore):
+3. '__'(underscore):_
 The underscore represents a single character. It can be used to match a single character at a specific position in a string.For example, if you use the pattern 'J__n', it will match values like 'John', 'Jane', etc.,
-                  select *
+
+                   select *
                   from employee
                   where birth_day like '____-02%';
 
