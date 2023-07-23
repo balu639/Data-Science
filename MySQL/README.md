@@ -181,3 +181,20 @@ ON DELETE CASCADE: When a row in the parent table is deleted, all related rows i
 
 ### Wild Cards
 
+SQL wildcards are special characters used in SQL (Structured Query Language) to perform pattern-matching searches in queries. They allow you to search for data that matches a specific pattern rather than an exact value. The three main SQL wildcards are:
+
+1. %(percent sign):
+The percent sign represents zero, one, or multiple characters. It can be used to match any sequence of characters in a string. For example, if you use the pattern 'A%', it will match all values that start with the letter 'A'.
+
+                  select *
+                  from client
+                  where client_name LIKE '%LLC';
+
+3. '_'(underscore):
+The underscore represents a single character. It can be used to match a single character at a specific position in a string.For example, if you use the pattern 'J__n', it will match values like 'John', 'Jane', etc.,
+                  select *
+                  from employee
+                  where birth_day like '____-02%';
+
+5. '[]'(square brackets):
+Square brackets allow you to specify a character range to match a single character. You can define a set of characters enclosed within square brackets to match any one of those characters. For example, if you use the pattern 'M[ae]%', it will match values that start with 'M' followed by either 'a' or 'e'.
