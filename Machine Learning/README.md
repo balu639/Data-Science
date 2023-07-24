@@ -81,23 +81,28 @@ Machine learning models can be saved using Joblib or pickle libraries in python.
 
                                  pip install joblib
    
-3. Suppose you want to save the trained Machine learning model
+2. Suppose you want to save the trained Machine learning model
 
                                  import joblib
                                  model = ....
                                  joblib.dump(model,"file_path")
+3. Suppose you want to load the saved model using joblib:
+                                 model = joblib.load("file_path")
 
 ##### Using Pickle
 1. Install the Pickle library
 
                                  pip install pickle
    
-3. Save the trained ML model using pickle.
+2. Save the trained ML model using pickle.
                                
                                  import pickle
                                  model= ......
-                                 with open ('model_pickle', 'wb') as f:
+                                 with open ('file_path', 'wb') as f:
                                     pickle.dump(model,f)
+3. Load the saved model using pickle
+                                 with open ('file_path', 'rb') as f:
+                                    model = pickle.load(f)
 
 Both joblib and pickle are useful for saving and loading ML models, but joblib is often preferred for large numerical arrays typically encountered in ML models, as it is more efficient in handling these cases. However, it's worth noting that pickle is a standard Python module and can be used for a broader range of objects beyond just ML models.
    
