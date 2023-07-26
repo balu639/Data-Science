@@ -208,6 +208,27 @@ By using Stratified K-Fold cross-validation, you can get more reliable estimates
 
 
 #### K-Means clustering
+K-Means clustering is a popular unsupervised machine learning algorithm used for clustering data points into distinct groups or clusters based on their similarity. The algorithm is widely used for tasks like customer segmentation, image compression, anomaly detection, and more.
+
+Here's a brief overview of how the K-Means algorithm works:
+ 1. Initialization: The algorithm starts by randomly selecting K data points from the dataset as the initial cluster centroids. K represents the number of clusters you want to create.
+ 2. Assignment: Each data point is assigned to the nearest cluster centroid based on some distance metric, commonly Euclidean distance. The distance between a data point and a centroid is calculated, and the data point is assigned to the cluster with the nearest centroid.
+ 3. Update: After all data points are assigned to clusters, the algorithm updates the positions of the centroids by calculating the mean of all data points belonging to each cluster. The centroid will be moved to the mean position of its assigned data points.
+ 4. Iteration: Steps 2 and 3 are repeated iteratively until convergence. Convergence occurs when the centroids no longer change significantly, or when a specified number of iterations is reached.
+ 5. Result: Once the algorithm converges, the data points will be clustered into K distinct groups, and each cluster will be represented by its centroid.
+
+Choosing the right value of K is important and can be determined using methods like the elbow method or silhouette score, which help in finding the optimal number of clusters for a given dataset.
+
+Keep in mind that K-Means has some limitations. It may converge to local optima depending on the initial centroid selection, so running it multiple times with different initializations can be helpful. Also, K-Means assumes that clusters are spherical and equally sized, which might not always be the case in real-world data.
+
+K-Means is relatively efficient and can handle large datasets, making it a popular choice for clustering tasks. However, it's essential to preprocess the data appropriately and normalize features if they have different scales to ensure the algorithm performs well.
+
+Overall, K-Means clustering is a simple yet effective algorithm that serves as a foundation for various other clustering techniques.
+
+                        from sklearn.cluster import KMeans
+                        km = KMeans(n_clusters = 3)
+                        
 #### Naive Bayes
+
 #### Hyperparameter tuning
 #### Regularization
