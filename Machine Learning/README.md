@@ -167,8 +167,46 @@ Key concepts and components of Support Vector Machines:
 
  5. Kernel Trick: SVM can be extended to handle non-linearly separable data using the kernel trick. It maps the original feature space into a higher-dimensional space, where the data becomes linearly separable. Common kernel functions include polynomial, radial basis function (RBF), and sigmoid kernels.
 
+                              from sklearn.svm import SVC
+                              model = SVC()
+
                               
 #### K-Fold Cross validation
+K-Fold cross-validation is a widely used technique in machine learning for assessing the performance of a model and reducing overfitting. It involves splitting the dataset into K subsets (or folds) of approximately equal size. The model is then trained and evaluated K times, each time using a different fold as the validation set and the remaining folds as the training set.
+
+Once you have completed K-Fold cross-validation, you can choose the best hyperparameters and model architecture based on the average performance metric. After this, you can retrain the model using the entire dataset and the chosen hyperparameters for deployment.
+
+K-Fold cross-validation is beneficial because it provides a more reliable estimate of a model's performance compared to a single train-test split. It also ensures that the model is tested on different data points, reducing the risk of overfitting to a specific training-validation split.
+However, it's essential to keep in mind that K-Fold cross-validation can be computationally expensive, as it involves training and evaluating the model K times. If your dataset is very large or your model is computationally intensive, you might consider using a lower value of K or other cross-validation techniques like stratified K-Fold, leave-one-out cross-validation, or hold-out validation.
+
+                              from sklearn.model_selection import KFold
+                              kf = KFold(n_splits = 5)
+                              kf.split(data)
+                              
+KFold is a method to create the cross-validation splits. It splits the data into K folds, where each fold is used as a validation set exactly once while the other K-1 folds are used for training. This is the core function used to implement K-Fold cross-validation.
+KFold is not used for directly evaluating the model, but rather it helps you generate the train-test indices for cross-validation.
+
+##### Cross_val_score
+cross_val_score is a convenient function in scikit-learn that performs cross-validation and directly returns the evaluation metric(s) for each fold as an array.It combines the process of creating the cross-validation splits (using an internal KFold) and training/evaluating the model for each fold.It automatically handles the process of fitting the model, predicting on the validation set, and calculating the desired evaluation metric(s).cross_val_score makes it easy to get an array of scores for each fold and provides a quick way to compute the average performance metric.
+
+                              from sklearn.model_selection import cross_val_score
+                              cross_val_score(model(),X,y,cv=5, scoring='accuracy')
+
+Here CV represents the cross-validation strategy.It can be a number or predefined K-Fold strategy.
+
+##### Stratified K-Fold
+Stratified K-Fold cross-validation is a variation of the traditional K-Fold cross-validation that addresses the issue of imbalanced class distributions in the target variable (labels) of the dataset. It ensures that each fold's training and validation sets have approximately the same proportion of samples for each class as the entire dataset.
+
+In standard K-Fold cross-validation, the data is randomly divided into K subsets (folds), and in each iteration, one fold is used as the validation set, and the rest of the folds are used for training. However, this random splitting can lead to some folds having an unequal distribution of classes, especially when the target variable has imbalanced classes.
+
+Stratified K-Fold cross-validation, on the other hand, takes the class distribution into account and creates folds that preserve the relative class frequencies of the target variable. It ensures that each fold is representative of the overall class distribution in the dataset.
+By using Stratified K-Fold cross-validation, you can get more reliable estimates of model performance, especially when dealing with imbalanced datasets. It helps ensure that all classes have equal representation during the model evaluation process, reducing the risk of biased performance metrics.
+
+                              from sklearn.model_selection import StratifiedKFold
+                              kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+                              scores = cross_val_score(model,X,y,cv=kf,scoring = 'accuracy')
+
+
 #### K-Means clustering
 #### Naive Bayes
 #### Hyperparameter tuning
