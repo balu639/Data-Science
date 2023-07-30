@@ -31,3 +31,24 @@ To display major gridlines on both the x and y axes, you can use the grid() func
 You can customize the gridlines further by passing arguments to the grid() function. For example:
 
                      plt.grid(color='gray', linestyle='--', linewidth=0.5)
+
+
+### Bar chart
+A bar chart is a graphical representation that uses rectangular bars to represent data. Each bar's length corresponds to the data's value it represents. Bar charts are commonly used to compare categorical data or to show the distribution of different categories.
+
+In Matplotlib, you can create bar charts using the `bar()` function. You should use a bar chart in Matplotlib when you want to visualize discrete data points and compare their values. It is suitable for displaying data that can be organized into distinct categories, such as comparing sales figures for different products, population distribution across cities, or exam scores for different subjects.
+
+### Pie chart
+
+A pie chart is a circular graph divided into slices, where each slice represents a proportion of the whole data set. The size of each slice is proportional to the data it represents, showcasing the percentage or fraction of the whole.
+
+In Matplotlib, you can create a pie chart using the `pie()` function. You should use a pie chart when you want to visualize the composition of a whole and its individual parts. It is suitable for displaying data with clear categories and their corresponding proportions, such as the percentage distribution of different expenses in a budget, the market share of various products, or the distribution of votes in an election.
+
+
+### Histogram
+A histogram is a graphical representation that organizes numerical data into bins or intervals. It displays the frequency or count of data points falling within each bin on the y-axis, and the bins themselves on the x-axis.
+
+In Matplotlib, you can create a histogram using the `hist()` function. You should use a histogram when you want to visualize the distribution of continuous or numerical data and understand its frequency distribution, shape, and range. It is suitable for displaying data such as exam scores of students, temperatures recorded over time, or the number of customers in different age groups.
+
+To summarize, use a histogram in Matplotlib to explore the distribution of continuous data and observe patterns in its frequency or count within specific intervals (bins).
+
