@@ -253,6 +253,7 @@ Often used for tasks like text classification and spam detection.
 ##### Bernoulli Naive Bayes (BernoulliNB):
 Suitable for binary or boolean features, where each feature represents the presence (1) or absence (0) of a particular attribute.
 Often used for text classification with binary features like the presence or absence of certain words in a document.
+
 These different Naive Bayes classifiers make different assumptions about the underlying distribution of the data and are designed for specific types of features. When choosing which one to use, consider the nature of your data and the assumptions that align with it.
 
 For example, if you're working with text data and want to perform sentiment analysis, MultinomialNB or BernoulliNB might be suitable choices depending on how you represent the text features. If you have continuous sensor data, GaussianNB could be more appropriate.
@@ -260,4 +261,19 @@ For example, if you're working with text data and want to perform sentiment anal
 
 
 #### Hyperparameter tuning
+
+Hyperparameter tuning involves selecting the best values for parameters that are not learned during the training process, but rather set before training begins. This optimization process aims to improve a model's performance.
 #### Regularization
+
+In machine learning, regularization is a technique used to prevent overfitting, which occurs when a model learns to perform exceptionally well on the training data but fails to generalize to new, unseen data. Regularization involves adding a penalty term to the model's loss function, discouraging it from fitting the training data too closely.
+
+There are two main types of regularization:
+
+##### L1 Regularization (Lasso): 
+This method adds the absolute values of the model's coefficients as a penalty. It encourages the model to eliminate unnecessary features by setting their corresponding coefficients to zero.
+##### L2 Regularization (Ridge):
+L2 regularization adds the squared values of the model's coefficients as a penalty. It encourages the model to distribute the impact of features more evenly and can help in handling multicollinearity issues.
+
+The amount of regularization applied is controlled by a hyperparameter. Increasing the hyperparameter value increases the regularization strength, which in turn reduces the model's complexity and helps prevent overfitting.
+
+By using regularization, models become more generalized, striking a balance between fitting the training data well and making accurate predictions on new data.
