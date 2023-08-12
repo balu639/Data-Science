@@ -229,6 +229,35 @@ Overall, K-Means clustering is a simple yet effective algorithm that serves as a
                         km = KMeans(n_clusters = 3)
                         
 #### Naive Bayes
+Naive Bayes is a probabilistic machine learning algorithm based on Bayes' theorem, which calculates the probability of an event given prior knowledge. It's particularly useful for text classification and sentiment analysis tasks. Naive Bayes assumes that features are independent, even if that assumption might not hold true in reality, hence the term "naive."
+
+It's commonly used when you have a small amount of data and need a simple and fast classification model. Naive Bayes is especially effective for tasks like spam detection, sentiment analysis, and topic categorization. To use it, you'll need to prepare your data with features and corresponding labels, then train the model using your labeled dataset. Keep in mind that while Naive Bayes can be accurate, its independence assumption might limit its performance on more complex tasks or datasets with strong dependencies among features.
+
+Using the Naive Bayes algorithm in scikit-learn (sklearn) for text classification is relatively straightforward. Here's a step-by-step guide on how to do it:
+
+
+                  from sklearn.naive_bayes import MultinomialNB
+
+
+In scikit-learn's sklearn.naive_bayes module, there are three main types of Naive Bayes classifiers available:
+
+##### Gaussian Naive Bayes (GaussianNB):
+Assumes that continuous features follow a Gaussian (normal) distribution.
+Suitable for features that are real-valued or approximately normally distributed.
+Commonly used for classification tasks where the features are continuous, like in some types of sensor data.
+##### Multinomial Naive Bayes (MultinomialNB):
+Used for discrete data such as text.
+Appropriate for features that represent counts or frequencies, like word counts in text.
+Often used for tasks like text classification and spam detection.
+
+##### Bernoulli Naive Bayes (BernoulliNB):
+Suitable for binary or boolean features, where each feature represents the presence (1) or absence (0) of a particular attribute.
+Often used for text classification with binary features like the presence or absence of certain words in a document.
+These different Naive Bayes classifiers make different assumptions about the underlying distribution of the data and are designed for specific types of features. When choosing which one to use, consider the nature of your data and the assumptions that align with it.
+
+For example, if you're working with text data and want to perform sentiment analysis, MultinomialNB or BernoulliNB might be suitable choices depending on how you represent the text features. If you have continuous sensor data, GaussianNB could be more appropriate.
+                  
+
 
 #### Hyperparameter tuning
 #### Regularization
