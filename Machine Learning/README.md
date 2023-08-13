@@ -263,6 +263,77 @@ For example, if you're working with text data and want to perform sentiment anal
 #### Hyperparameter tuning
 
 Hyperparameter tuning involves selecting the best values for parameters that are not learned during the training process, but rather set before training begins. This optimization process aims to improve a model's performance.
+
+Here's a step-by-step guide on how to perform hyperparameter tuning using Grid Search CV:
+
+##### Select Hyperparameters to Tune: 
+Identify the hyperparameters that significantly affect the model's performance. These can include parameters like learning rate, number of hidden layers, number of nodes in each layer, regularization strength, etc.
+
+##### Define Parameter Grid: 
+Create a grid of possible hyperparameter values that you want to search over. For example, you can define a dictionary where each key represents a hyperparameter and its value is a list of possible values to try.
+
+##### Split Data for Cross-Validation: 
+Divide your dataset into training and validation (or test) sets. Cross-validation is used to estimate the performance of different hyperparameter combinations. Common choices include k-fold cross-validation or stratified k-fold cross-validation.
+
+##### Build a Model: 
+Choose a machine learning algorithm and build your model using a particular set of hyperparameters. This is often referred to as the base model.
+
+##### Grid Search CV: 
+Perform grid search with cross-validation using the defined parameter grid and the evaluation metric of your choice. For each combination of hyperparameters in the grid, train the model on the training data and evaluate its performance on the validation set using the chosen evaluation metric.
+
+                          from sklearn.model_selection import GridSearchCV
+                          def find_best_model_using_gridsearchcv(X,y):
+                              algos = {
+                                  'linear_regression' : {
+                                      'model': LinearRegression(),
+                                      'params':{
+                                          
+                                      }
+                                  },
+                                  'lasso':{
+                                      'model': Lasso(),
+                                      'params': {
+                                          'alpha': [1,2],
+                                          'selection': ['random','cyclic']
+                                      }
+                                  },
+                                  'decision_tree':{
+                                      'model': DecisionTreeRegressor(),
+                                      'params': {
+                                          'criterion': ['mse','friedman_mse'],
+                                          'splitter': ['best','random']
+                                      }
+                                  }
+                              }
+                              
+                              scores = []
+                          
+                              cv = ShuffleSplit(n_splits=5, test_size=0.2, random_state=10)
+                          
+                              for alg_name, config in algos.items():
+                                  gs = GridSearchCV(config['model'], config['params'],cv=cv,return_train_score= False)
+                                  gs.fit(X,y)
+                                  scores.append({
+                                      'model': alg_name,
+                                      'best_score': gs.best_score_,
+                                      'best_params': gs.best_params_
+                                  })
+                                  
+                              return pd.DataFrame(scores, columns=['model','best_score', 'best_params'])
+
+##### Select Best Parameters: 
+Identify the hyperparameter combination that resulted in the best performance on the validation set according to your chosen evaluation metric.
+
+##### Evaluate on Test Set: 
+After selecting the best hyperparameters, evaluate the model's performance on a separate test set that wasn't used during the hyperparameter tuning process. This provides an unbiased estimate of the model's generalization performance.
+
+##### Fine-Tuning (Optional): 
+If necessary, you can perform a finer search around the best hyperparameters using a narrower range of values. This is known as fine-tuning.
+
+##### Implement Best Model:
+Train a final model using the best hyperparameters on the entire dataset (training + validation) to maximize performance.
+
+
 #### Regularization
 
 In machine learning, regularization is a technique used to prevent overfitting, which occurs when a model learns to perform exceptionally well on the training data but fails to generalize to new, unseen data. Regularization involves adding a penalty term to the model's loss function, discouraging it from fitting the training data too closely.
