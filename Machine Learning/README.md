@@ -72,8 +72,11 @@ Here's a basic explanation of how gradient descent works:
  6. Convergence: Ideally, the algorithm will converge to a minimum point of the loss function, representing the best parameter values for the model given the training data.
 
 There are different variants of gradient descent, such as Stochastic Gradient Descent (SGD), Mini-batch Gradient Descent, and Batch Gradient Descent. These variants differ in how they use data to compute gradients and update parameters. SGD uses a single data point at a time, Mini-batch Gradient Descent uses a small subset of data points, and Batch Gradient Descent uses the entire dataset in each iteration.
-
-
+ 
+#### Overfitting
+Overfitting occurs when a model learns to perform exceptionally well on the training data but fails to generalize to new, unseen data. In other words, the model has learned the noise and fluctuations present in the training data rather than the underlying patterns. This can lead to poor performance when the model encounters new data points.
+#### Underfitting
+Underfitting occurs when a model is too simplistic to capture the underlying patterns in the data, resulting in poor performance on both the training and validation/test data. It essentially means that the model hasn't learned enough from the training data to make accurate predictions.
 #### Saving a Model
 Machine learning models can be saved using Joblib or pickle libraries in python.Both joblib and pickle are libraries that allow you to serialize Python objects, including ML models, so that they can be saved to disk and later loaded and used for predictions.
 ##### Using Joblib
